@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 230 30% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 230 30% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 30% 10%;
+
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 230 30% 10%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53% / 0.05) 0%, hsl(221 83% 53% / 0.02) 100%);
+    --card-shadow: 0 1px 3px 0 hsl(0 0% 0% / 0.05), 0 1px 2px -1px hsl(0 0% 0% / 0.05);
+    --card-shadow-hover: 0 4px 6px -1px hsl(0 0% 0% / 0.07), 0 2px 4px -2px hsl(0 0% 0% / 0.07);
+  }
+
+  .dark {
+    --background: 230 30% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 230 25% 14%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 230 25% 14%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 221 83% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 230 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 230 20% 18%;
+    --muted-foreground: 220 9% 60%;
+
+    --accent: 221 83% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 230 20% 22%;
+    --input: 230 20% 22%;
+    --ring: 221 83% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .section-title {
+    @apply text-2xl sm:text-3xl font-semibold text-foreground mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-base sm:text-lg max-w-2xl;
+  }
+
+  .feature-card {
+    @apply bg-card p-6 rounded-lg border border-border;
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+
+  .feature-card:hover {
+    box-shadow: var(--card-shadow-hover);
+  }
+
+  .step-number {
+    @apply w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-semibold text-lg flex-shrink-0;
+  }
+
+  .link-underline {
+    @apply text-primary hover:underline underline-offset-4 transition-colors;
+  }
+}
